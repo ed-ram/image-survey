@@ -1,0 +1,160 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 50px;
+  background-color: rgba(2,2,2,0.6);
+  height: auto;
+  padding: 20px;
+  color: aliceblue;
+}
+
+.App {
+  text-align: center;
+  /*background: linear-gradient(#311c47, #1c0e2b);*/
+  height: 100%;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.currentUser {
+  color: aliceblue;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+html, body {
+  height: 100%;
+  background: linear-gradient(#0f142c, #361b53);
+  font-family: "Source Sans Pro", "Arial", sans-serif;
+  font-size: 20px;
+  color: aqua
+  
+}
+
+label {
+ /* color: #fff;*/
+  
+}
+
+/*--FLEXBOX STUFF --*/
+
+.imageContainer {
+  display: flex;
+  justify-content: space-around; 
+  flex-wrap: wrap;
+  
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-wrap: wrap;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.inputControl {
+  text-align: left;
+}
+
+
+.header {
+  text-align: center;
+  background-color: rgba(2,2,2,0.7);
+  height: 90px;
+  padding: 20px;
+  color: white;
+}
+
+/*-- IMAGE MANIPULATION --*/
+
+.imageContainer img{
+  width: 600px;
+  height: 400px;
+  padding-top: 40px;
+}
+
+img.desaturate {
+filter: grayscale(100%);
+}
+
+.pic {
+  /*box-shadow: 5px 5px 10px black;*/
+}
+
+/*-- BUTTON --*/
+
+.btn {
+/*display: inline-block;*/
+padding: 5px 20px; /* topbottom and rightleft  */
+font-weight: 300;
+/*border-style: dashed;
+border-color: #fff;*/
+text-decoration: none;
+border-radius: 50px;
+/*color: #fff;*/
+  transition: background-color 0.7s, color 0.5s;
+  margin: 0px 10%;
+  font-family: "Source Sans Pro", "Arial", sans-serif;
+  font-size: 20px;
+  color: rgb(225, 255, 255)
+}
+
+
+.btn-full {
+background-color: #e67e22;  /*   courtesy of flatui color site  */
+border: 2px solid #271506
+}
+
+.btn-ghost:link,
+.btn-ghost:visited {
+border: 1px solid #e67e22;
+color: #e67e22;
+}
+
+.btn:hover,
+.btn:active {
+background-color: #82450f;
+}
+
+.btn-full:hover,
+.btn-full:active {
+border: 2px solid black /*#82450f*/;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+border: 1px solid #82450f;
+color: #fff;
+}
+
+/*-- input zone --*/
+fieldset {
+  border: 0;
+}
+
+.formList {
+  list-style: none;
+  margin: 10px;
+}
+
+.radioLabel {
+  display: inline-block;
+  text-align: center;
+  margin: 0em 0.2em;
+}
+
+.radioLabel label {
+  display: block;
+}
