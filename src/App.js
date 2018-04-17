@@ -5,7 +5,7 @@ import ImageGroup from './components/ImageGroup';
 import ButtonGroup from './components/ButtonGroup';
 import Header from './components/Header';
 import { Link, Route, Switch } from 'react-router-dom';
-
+import { connect } from "react-redux";
 /*
 const Login = () => (
   <div className="btn btn-ghost login-placeholder">
@@ -31,13 +31,30 @@ const DataEntry = () => (
 
 class App extends Component {
   render() {
+    const { fetching, imageArray, error, onGetList } = this.props;
     return (
       <div className="App">
-        <Route exact path="/" component={Login} />
-        <Route path="/app" component={DataEntry} />
+            <Header/>
+            <button onClick={onGetList}> get my list </button>
+            <h1> {imageArray} </h1>
+            
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+      fetching: state.fetching,
+      imageArray: state.imageArray,
+      error: state.error
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onGetList: () => dispatch({ type: 'GET_LIST_REQUEST'})
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

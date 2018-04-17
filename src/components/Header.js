@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
+//import { Link, Route, Switch } from 'react-router-dom';
 
 export default class Header extends Component {
     render() {
@@ -10,7 +10,7 @@ export default class Header extends Component {
                     <h3>Arterial calcification on duplex ultrasound</h3>
                 </div>
                 <div>
-                    <Link className="currentUser" to='/'><p>register || sign in</p></Link>
+                    <p>register || sign in</p>
                 </div>
             </div>
         )
