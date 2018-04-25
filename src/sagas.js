@@ -7,11 +7,12 @@ export function* getImageListWatcher() {
     yield takeLatest('GET_LIST_REQUEST', getImageListWorker)
 }
 
+
 //axios request, returns a promise. Maybe should use fetch instead?
 function fetchImageList() {
     return axios({
         method: "get",
-        url: "/testo"
+        url: "/imagegroups"
     })
 }
 
@@ -19,9 +20,11 @@ function fetchImageList() {
 function* getImageListWorker() {
     try {
         const response = yield call(fetchImageList);
-        const list = response.data;
-        console.log(list);
-        yield put({ type: 'GET_LIST_SUCCESS', list })
+        const imageGroups = response.data.ImageGroups
+        console.log(imageGroups)
+        /*const sList = response.data;
+        const list = JSON.parse(response);*/
+        yield put({ type: 'GET_LIST_SUCCESS', imageGroups })
     } catch (error) {
         yield put({ type: 'GET_LIST_FAILURE', error })
     }

@@ -30,14 +30,27 @@ const DataEntry = () => (
 
 
 class App extends Component {
+
+  componentDidMount() {
+    auth.handleAuthentication();
+  }
+
   render() {
-    const { fetching, imageArray, error, onGetList } = this.props;
+    const { fetching, error, onGetList, } = this.props;
     return (
       <div className="App">
-            <Header/>
-            <button onClick={onGetList}> get my list </button>
-            <h1> {imageArray} </h1>
-            
+      <Header auth={auth} />
+      {auth.isAuthenticated() ?
+      <div>
+        <ImageGroup />
+        <ButtonGroup /> 
+      </div>
+      : <div> <button className="btn btn-full start-btn" onClick={Login}>
+       Let's get started </button>
+       
+       {/*<button onClick={onGetList}>fff</button> */}
+       
+       </div>}      
       </div>
     );
   }
@@ -46,8 +59,8 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
       fetching: state.fetching,
-      imageArray: state.imageArray,
-      error: state.error
+      error: state.error,
+      imageGroups: state.imageGroups
   };
 };
 

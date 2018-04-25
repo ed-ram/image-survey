@@ -95,6 +95,7 @@ filter: grayscale(100%);
 
 /*-- BUTTON --*/
 
+
 .btn {
 /*display: inline-block;*/
 padding: 5px 20px; /* topbottom and rightleft  */
@@ -137,6 +138,11 @@ border: 2px solid black /*#82450f*/;
 .btn-ghost:active {
 border: 1px solid #82450f;
 color: #fff;
+}
+
+
+.start-btn {
+  margin-top: 100px;
 }
 
 /*-- input zone --*/

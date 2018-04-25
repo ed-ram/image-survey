@@ -5,8 +5,8 @@ const GET_LIST_FAILURE = 'GET_LIST_FAILURE';
 
 // initial state
 const initialState = {
+    imageGroups: [],
     fetching: false,
-    imageArray: ['wango','dango'],
     error: null
 }
 
@@ -17,7 +17,7 @@ export function reducer(state = initialState, action) {
             return { ...state, fetching: true, error: null };
             break;
         case GET_LIST_SUCCESS:
-            return { ...state, fetching: false, imageArray: action.list };
+            return { ...state, fetching: false, imageGroups: action.imageGroups };
             break;
         case GET_LIST_FAILURE:
             return { ...state, fetching: false, imageArray: null, error: action.error };

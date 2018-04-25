@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+//import React, { Component } from 'react';
 //import { Link, Route, Switch } from 'react-router-dom';
-
+/*
 export default class Header extends Component {
+
     render() {
         return(
             <div className="Header">
@@ -15,4 +16,28 @@ export default class Header extends Component {
             </div>
         )
     }
+}*/
+
+// Refactored as a FUNCTIONAL COMPONENT
+
+import React from 'react';
+
+export default function Header(props) {
+    return(
+        <div className="Header">
+            <div>page 1 of 20</div>
+            <div className="App-title">
+                <h3>Arterial calcification on duplex ultrasound</h3>
+            </div>
+            
+                {props.auth.isAuthenticated()
+                ? <div>
+                <button className="btn btn-full" onClick={props.auth.logout()}>logout</button>
+            </div>
+                : <div>
+                <button className="btn btn-full" onClick={props.auth.login()}>login</button>
+                </div>
+                }
+        </div>
+    )
 }
