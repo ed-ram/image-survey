@@ -13,11 +13,11 @@ const Login = () => (
   </div>
 )*/
 
-const auth = new Auth();
+/*const auth = new Auth();
 
 const Login = () => {
   auth.login();
-};
+};*/
 
 
 const DataEntry = () => (
@@ -28,19 +28,25 @@ const DataEntry = () => (
   </div>
 )
 
+const handleAuthentication = ({location}) => {
+  if (/access_token|id_token|error/.test(location.hash)) {
+    auth.handleAuthentication();
+  }
+}
+
 
 class App extends Component {
 
-  componentDidMount() {
+  /*componentDidMount() {
     auth.handleAuthentication();
-  }
+  }*/
 
   render() {
-    const { fetching, error, onGetList, } = this.props;
+    const { fetching, error, onGetList, loggedIn, Login } = this.props;
     return (
       <div className="App">
-      <Header auth={auth} />
-      {auth.isAuthenticated() ?
+      <Header auth={auth}/>
+      {loggedIn ?
       <div>
         <ImageGroup />
         <ButtonGroup /> 
@@ -60,13 +66,15 @@ const mapStateToProps = state => {
   return {
       fetching: state.fetching,
       error: state.error,
-      imageGroups: state.imageGroups
+      imageGroups: state.imageGroups,
+      loggedIn: state.loggedIn
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onGetList: () => dispatch({ type: 'GET_LIST_REQUEST'})
+    onGetList: () => dispatch({ type: 'GET_LIST_REQUEST'}),
+    Login: () => dispatch({ type: 'CHECK_LOGIN' })
   };
 };
 

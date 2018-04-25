@@ -11,7 +11,7 @@ const initialState = {
 }
 
 // the reducer
-export function reducer(state = initialState, action) {
+export function imageListReducer(state = initialState, action) {
     switch (action.type){
         case GET_LIST_REQUEST:
             return { ...state, fetching: true, error: null };

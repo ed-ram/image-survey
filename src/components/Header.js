@@ -30,12 +30,12 @@ export default function Header(props) {
                 <h3>Arterial calcification on duplex ultrasound</h3>
             </div>
             
-                {props.auth.isAuthenticated()
+                {props.loggedIn
                 ? <div>
-                <button className="btn btn-full" onClick={props.auth.logout()}>logout</button>
+                <button className="btn btn-full" >logout</button>
             </div>
                 : <div>
-                <button className="btn btn-full" onClick={props.auth.login()}>login</button>
+                <button className="btn btn-full" >login</button>
                 </div>
                 }
         </div>
