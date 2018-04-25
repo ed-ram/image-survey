@@ -1,7 +1,5 @@
-//action constants
-const CHECK_LOGIN = 'CHECK_LOGIN';
-const LOGIN_CHECKED = 'LOGIN_CHECKED';
-const LOGIN_FAILED = 'LOGIN_FAILED';
+import {CHECK_LOGIN, LOGIN_CHECKED} from '../actions/types'
+
 
 // initial state
 const initialState = {

@@ -5,16 +5,17 @@ const GET_LIST_FAILURE = 'GET_LIST_FAILURE';
 
 // initial state
 const initialState = {
+    initialised: false,
     imageGroups: [],
     fetching: false,
     error: null
 }
 
 // the reducer
-export function imageListReducer(state = initialState, action) {
+export default (state = initialState, action) => {
     switch (action.type){
         case GET_LIST_REQUEST:
-            return { ...state, fetching: true, error: null };
+            return { ...state, fetching: true, error: null, initialised: true };
             break;
         case GET_LIST_SUCCESS:
             return { ...state, fetching: false, imageGroups: action.imageGroups };

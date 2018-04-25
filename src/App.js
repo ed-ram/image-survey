@@ -6,6 +6,7 @@ import ButtonGroup from './components/ButtonGroup';
 import Header from './components/Header';
 import { Link, Route, Switch } from 'react-router-dom';
 import { connect } from "react-redux";
+import * as types from './actions/types';
 /*
 const Login = () => (
   <div className="btn btn-ghost login-placeholder">
@@ -13,12 +14,11 @@ const Login = () => (
   </div>
 )*/
 
-/*const auth = new Auth();
+const auth = new Auth();
 
 const Login = () => {
   auth.login();
-};*/
-
+};
 
 const DataEntry = () => (
   <div>
@@ -28,54 +28,58 @@ const DataEntry = () => (
   </div>
 )
 
-const handleAuthentication = ({location}) => {
-  if (/access_token|id_token|error/.test(location.hash)) {
-    auth.handleAuthentication();
+function Home (props) {
+  const {initialised, imageGroups} = props;
+  if (initialised) {
+    return (
+      <div>
+      <ImageGroup imageGroups={imageGroups}/>
+      <ButtonGroup imageGroups={imageGroups}/> 
+    </div>
+    )
+    return (null)
   }
 }
 
 
 class App extends Component {
 
-  /*componentDidMount() {
-    auth.handleAuthentication();
-  }*/
-
   render() {
-    const { fetching, error, onGetList, loggedIn, Login } = this.props;
+    const { fetching, error, onGetList, imageGroups, initialised } = this.props;
     return (
       <div className="App">
-      <Header auth={auth}/>
-      {loggedIn ?
+      <Header />
+
+      {!initialised && (<div>
+      <ImageGroup imageGroups={imageGroups}/>
+      <ButtonGroup imageGroups={imageGroups}/> 
+      </div>) }
+      
+      
       <div>
-        <ImageGroup />
-        <ButtonGroup /> 
+      <button onClick={onGetList}> Let's get started! </button>
       </div>
-      : <div> <button className="btn btn-full start-btn" onClick={Login}>
-       Let's get started </button>
        
-       {/*<button onClick={onGetList}>fff</button> */}
-       
-       </div>}      
-      </div>
+      </div>    
+
     );
   }
 }
 
 const mapStateToProps = state => {
   return {
+      initialised: state.initialised,
       fetching: state.fetching,
       error: state.error,
       imageGroups: state.imageGroups,
-      loggedIn: state.loggedIn
   };
 };
-
+//event emit signup sheet
 const mapDispatchToProps = dispatch => {
   return {
-    onGetList: () => dispatch({ type: 'GET_LIST_REQUEST'}),
-    Login: () => dispatch({ type: 'CHECK_LOGIN' })
-  };
+    onGetList: () => dispatch({ type: types.GET_LIST_REQUEST}),
+    
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
