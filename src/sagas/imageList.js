@@ -1,10 +1,11 @@
 
 import { takeLatest, call, put } from 'redux-saga/effects';
 import axios from 'axios';
+import * as types from '../actions/types'
 
 // watcher saga
 export function* getImageListWatcher() {
-    yield takeLatest('GET_LIST_REQUEST', getImageListWorker)
+    yield takeLatest(types.GET_LIST_REQUEST, getImageListWorker)
 }
 
 
@@ -24,8 +25,8 @@ function* getImageListWorker() {
         console.log(imageGroups)
         /*const sList = response.data;
         const list = JSON.parse(response);*/
-        yield put({ type: 'GET_LIST_SUCCESS', imageGroups })
+        yield put({ type: types.GET_LIST_SUCCESS, payload: imageGroups })
     } catch (error) {
-        yield put({ type: 'GET_LIST_FAILURE', error })
+        yield put({ type: types.GET_LIST_FAILURE, error })
     }
 }

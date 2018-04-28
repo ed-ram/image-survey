@@ -29,12 +29,12 @@ const DataEntry = () => (
 )
 
 function Home (props) {
-  const {initialised, imageGroups} = props;
+  let {initialised, imageGroups} = props;
   if (initialised) {
     return (
       <div>
-      <ImageGroup imageGroups={imageGroups}/>
-      <ButtonGroup imageGroups={imageGroups}/> 
+      <ImageGroup/>
+      <ButtonGroup/> 
     </div>
     )
     return (null)
@@ -45,15 +45,15 @@ function Home (props) {
 class App extends Component {
 
   render() {
-    const { fetching, error, onGetList, imageGroups, initialised } = this.props;
+    let { fetching, error, onGetList, imageGroups, initialised } = this.props;
     return (
       <div className="App">
       <Header />
 
-      {!initialised && (<div>
-      <ImageGroup imageGroups={imageGroups}/>
-      <ButtonGroup imageGroups={imageGroups}/> 
-      </div>) }
+      <div>
+      <ImageGroup/>
+      <ButtonGroup/> 
+      </div>) 
       
       
       <div>
@@ -78,7 +78,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onGetList: () => dispatch({ type: types.GET_LIST_REQUEST}),
-    
+     
     };
 };
 

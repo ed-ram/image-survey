@@ -8,19 +8,14 @@ import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import createSagaMiddleware from "redux-saga";
 import { Provider } from "react-redux";
 import {composeWithDevTools} from 'redux-devtools-extension'
-import imageListReducer from './reducer/image_list'; 
-import { loginReducer } from './reducer/login'; 
-//import { getImageListWatcher } from './sagas/imageList'
-import rootSaga from './sagas/root'
 
-
+//import { getImageListWatcher } from './sagas/imageList';
+import rootSaga from './sagas/root';
+import rootReducer from './reducer/index';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const rootReducer = combineReducers({
-    loginReducer,
-    imageListReducer
-})
+
 
 let store = createStore(
     rootReducer,

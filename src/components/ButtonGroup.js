@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {INCREMENT} from '../actions/types';
 
-export default class ButtonGroup extends Component {
+class ButtonGroup extends Component {
     render() {
+      const {increment} = this.props;
         return(
 <section className="buttonContainer">
     <button className="btn btn-full" href='#'>prev</button>
@@ -29,8 +32,24 @@ export default class ButtonGroup extends Component {
       </fieldset>
     </form>
  
-    <button className="btn btn-full" href='#'>next</button>
+    <button className="btn btn-full"  onClick={increment}>next</button>
 </section>
         )
     }
 }
+
+
+const mapStateToProps = (state) => {
+  return {
+      current: state.counter.current
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    increment: () => dispatch({ type: INCREMENT})
+     
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ButtonGroup);
