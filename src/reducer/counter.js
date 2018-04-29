@@ -1,5 +1,6 @@
 import {INCREMENT} from '../actions/types'
 
+//action creator to get 
 
 
 const initialState = {
@@ -9,7 +10,7 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case INCREMENT:
-            return  { current: action.payload }
+            return  { current: state.current + 1 }
             break;
         default:
             return state

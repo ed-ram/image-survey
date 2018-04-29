@@ -1,7 +1,4 @@
-//action constants
-const GET_LIST_REQUEST = 'GET_LIST_REQUEST';
-const GET_LIST_SUCCESS = 'GET_LIST_SUCCESS';
-const GET_LIST_FAILURE = 'GET_LIST_FAILURE';
+import * as types from '../actions/types'
 
 // initial state
 const initialState = {
@@ -19,13 +16,13 @@ const initialState = {
 // the reducer
 export default (state = initialState, action) => {
     switch (action.type){
-        case GET_LIST_REQUEST:
-            return { ...state, fetching: true, error: null, initialised: true };
+        case types.GET_LIST_REQUEST:
+            return { ...state, fetching: action.payload.fetching, error: action.payload.error, initialised: action.payload.initialised };
             break;
-        case GET_LIST_SUCCESS:
-            return { ...state, fetching: false, imageGroups: action.payload };
+        case types.GET_LIST_SUCCESS:
+            return { ...state, fetching: action.payload.fetching, imageGroups: action.payload.imageGroups    };
             break;
-        case GET_LIST_FAILURE:
+        case types.GET_LIST_FAILURE:
             return { ...state, fetching: false, imageArray: null, error: action.error };
             break;
         default:

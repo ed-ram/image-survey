@@ -17,15 +17,33 @@ function fetchImageList() {
     })
 }
 
+function create_scores_array(objectArray) {
+    let output = []
+    objectArray.map(
+        (i) => {
+            output.push(
+                {
+                    uuid: i["uuid"],
+                    score: ''
+                }
+            )
+        }
+    )
+    return(output)
+}
+
 //worker saga
 function* getImageListWorker() {
     try {
         const response = yield call(fetchImageList);
-        const imageGroups = response.data.ImageGroups
-        console.log(imageGroups)
+        const imageGroups = response.data
+        const scores = create_scores_array(imageGroups)
+        console.log(scores)
+        //console.log(imageGroups)
         /*const sList = response.data;
         const list = JSON.parse(response);*/
-        yield put({ type: types.GET_LIST_SUCCESS, payload: imageGroups })
+        yield put({ type: types.GET_LIST_SUCCESS, payload: {imageGroups, fetching: false} })
+        yield put({ type: types.POPULATE_SCORES, payload: scores })
     } catch (error) {
         yield put({ type: types.GET_LIST_FAILURE, error })
     }

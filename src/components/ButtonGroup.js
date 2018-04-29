@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {INCREMENT} from '../actions/types';
+import {commit_score, update_current_score} from '../reducer/scores'
 
 class ButtonGroup extends Component {
+
+    handleInput = (evt) => {
+      console.log(evt.target.value)
+      let val = {score: evt.target.value, uuid: this.props.imageGroups[this.props.counter].uuid};
+      this.props.update_current_score(val)
+    }
+
     render() {
-      const {increment} = this.props;
+      const {increment, current_score, counter, imageGroups} = this.props;
         return(
 <section className="buttonContainer">
     <button className="btn btn-full" href='#'>prev</button>
@@ -14,20 +22,28 @@ class ButtonGroup extends Component {
     <form className="inputControl">
       <fieldset>
             <li className="formList">
-              <input type="radio" name="score" value="1"/>
-              <label for="1">No calcification</label>
+              <input type="radio" name="score" value="1"
+              checked={current_score==1}
+              onChange={this.handleInput}/>
+              <label htmlFor="1">No calcification</label>
             </li>
             <li className="formList">  
-              <input type="radio" name="score" value="2"/>
-              <label for="2">Mild calcification</label>
+              <input type="radio" name="score" value="2"
+              checked={current_score==2}
+              onChange={this.handleInput}/>
+              <label htmlFor="2">Mild calcification</label>
             </li>
             <li className="formList">
-              <input type="radio" name="score" value="3"/>
-              <label for="3">Significant calcification</label>
+              <input type="radio" name="score" value="3"
+              checked={current_score==3}
+              onChange={this.handleInput}/>
+              <label htmlFor="3">Significant calcification</label>
             </li>
             <li className="formList">
-              <input type="radio" name="score" value="4"/>
-              <label for="4">Severe calcification</label>
+              <input type="radio" name="score" value="4"
+              checked={current_score==4}
+              onChange={this.handleInput}/>
+              <label htmlFor="4">Severe calcification</label>
             </li>
       </fieldset>
     </form>
@@ -41,15 +57,21 @@ class ButtonGroup extends Component {
 
 const mapStateToProps = (state) => {
   return {
-      current: state.counter.current
+      counter: state.counter.current,
+      imageGroups: state.imageList.imageGroups,  
+      current_score: state.scores.current_score
+
   };
 };
 
+/*
 const mapDispatchToProps = dispatch => {
   return {
+    update_current_score,
     increment: () => dispatch({ type: INCREMENT})
-     
     };
-};
+};*/
+
+const mapDispatchToProps = {update_current_score}
 
 export default connect(mapStateToProps, mapDispatchToProps)(ButtonGroup);

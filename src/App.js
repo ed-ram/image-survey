@@ -44,23 +44,28 @@ function Home (props) {
 
 class App extends Component {
 
+  componentDidMount() {
+    this.props.onGetList()
+  }
+
   render() {
-    let { fetching, error, onGetList, imageGroups, initialised } = this.props;
+    let { fetching, error, onGetList, imageGroups, initialised, current } = this.props;
     return (
       <div className="App">
       <Header />
-
-      <div>
+      {current<=imageGroups.length-1
+      ?
+      (<div>
       <ImageGroup/>
       <ButtonGroup/> 
       </div>) 
-      
-      
-      <div>
-      <button onClick={onGetList}> Let's get started! </button>
-      </div>
-       
-      </div>    
+      :
+      (<div>
+      <h1> thank you and goodnight </h1>
+      </div>)
+    }
+     
+    </div>    
 
     );
   }
@@ -71,13 +76,14 @@ const mapStateToProps = state => {
       initialised: state.initialised,
       fetching: state.fetching,
       error: state.error,
-      imageGroups: state.imageGroups,
+      imageGroups: state.imageList.imageGroups,
+      current: state.counter.current
   };
 };
 //event emit signup sheet
 const mapDispatchToProps = dispatch => {
   return {
-    onGetList: () => dispatch({ type: types.GET_LIST_REQUEST}),
+    onGetList: () => dispatch({ type: types.GET_LIST_REQUEST, payload:{fetching: true, error: null, initialised: true}})
      
     };
 };
