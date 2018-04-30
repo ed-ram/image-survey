@@ -11,6 +11,7 @@ export const LOGIN_FAILED = 'LOGIN_FAILED';
 
 //nav
 export const INCREMENT = 'INCREMENT';
+export const DECREMENT = 'DECREMENT';
 
 //score
 export const UPDATE_SCORE = 'UPDATE_SCORE';

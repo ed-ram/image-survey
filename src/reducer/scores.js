@@ -16,8 +16,8 @@ export const commit_score = (val) => (
 )
 
 const initState = {
-    current_score: '4',
-    scores: []
+    current_score: '',
+    scores: [{uuid:'', score:''}]
 }
 
 export default (state = initState, action) => {
