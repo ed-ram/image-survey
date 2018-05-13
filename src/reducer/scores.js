@@ -17,7 +17,8 @@ export const commit_score = (val) => (
 
 const initState = {
     current_score: '',
-    scores: [{uuid:'', score:''}]
+    scores: [{uuid:'', score:''}],
+    scores_submitted: false
 };
 
 export default (state = initState, action) => {
@@ -31,6 +32,9 @@ export default (state = initState, action) => {
                 (item) => item.uuid===action.payload.uuid ? {...item, score:action.payload.score}
                                                           : item
             )}
+        break;
+    case types.POST_SCORES_SUCCESS:
+        return {...state, scores_submitted: action.payload.scores_submitted}
         break;
     default:
         return state;

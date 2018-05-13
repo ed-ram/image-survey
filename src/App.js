@@ -61,7 +61,7 @@ class App extends Component {
       </div>) 
       :
       (<div>
-      <h1> thank you and goodnight </h1>
+      <h1> thank you for participating </h1>
       </div>)
     }
 

@@ -22,8 +22,7 @@ class ButtonGroup extends Component {
 <section className="buttonContainer">
     {(counter>0) && <button className="btn btn-full" onClick={decrement}>prev</button>}
   
-    
-    {/*<input className="" type="range" min="0" max="5"></input>*/}
+
     <form className="inputControl">
       <fieldset>
             <li className="formList">
@@ -52,10 +51,11 @@ class ButtonGroup extends Component {
             </li>
       </fieldset>
     </form>
-    
-    <button className="btn btn-full"  onClick={this.handleSubmit}>TEST SUBMIT</button>
 
-    <button className="btn btn-full"  onClick={increment}>next</button>
+    {(counter<imageGroups.length-1) && <button className="btn btn-full"  onClick={increment}>next</button>}
+
+    {(counter==imageGroups.length-1) &&<button className="btn btn-full"  onClick={this.handleSubmit}>SUBMIT</button>}
+
 </section>
         )
     }

@@ -11,7 +11,7 @@ class Header extends Component {
         const {current, imageGroups} = this.props;
         return(
             <div className="Header">
-                <div className="counter"> {current}/ {imageGroups.length}</div>
+                <div className="counter"> {current+1}/ {imageGroups.length}</div>
                 <div className="App-title">
                     <h3>Arterial calcification on duplex ultrasound</h3>
                 </div>

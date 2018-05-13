@@ -20,6 +20,7 @@ function* postScoresWorker(action) {
     try{ 
         const response = yield call(sendScores, action.payload);
         console.log(response);
+        yield put({type: types.POST_SCORES_SUCCESS, payload: {scores_submitted: true}})
     }
     catch (error){
         console.log(error);
