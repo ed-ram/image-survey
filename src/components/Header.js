@@ -11,19 +11,18 @@ class Header extends Component {
         const {current, imageGroups} = this.props;
         return(
             <div className="Header">
-                <div>current: {current}/ {imageGroups.length}</div>
+                <div className="counter"> {current}/ {imageGroups.length}</div>
                 <div className="App-title">
                     <h3>Arterial calcification on duplex ultrasound</h3>
                 </div>
-                <div>
-                    <p>register || sign in</p>
-                </div>
+
             </div>
         )
     }
 }
 
-
+export default Header;
+/*
 const mapStateToProps = (state) => {
     return {
         current: state.counter.current,
@@ -33,13 +32,13 @@ const mapStateToProps = (state) => {
 
   const mapDispatchToProps = dispatch => {
     return {
-      /*onGetList: () => dispatch({ type: types.GET_LIST_REQUEST}),*/
+
        
       };
   };
   
   export default connect(mapStateToProps, mapDispatchToProps)(Header);
-  
+*/
 
 // Refactored as a FUNCTIONAL COMPONENT
 /*

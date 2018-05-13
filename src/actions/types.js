@@ -3,6 +3,7 @@ export const GET_LIST_REQUEST = 'GET_LIST_REQUEST';
 export const GET_LIST_SUCCESS = 'GET_LIST_SUCCESS';
 export const GET_LIST_FAILURE = 'GET_LIST_FAILURE';
 export const POPULATE_SCORES = 'POPULATE_SCORES';
+export const POST_SCORES_REQUEST = 'POST_SCORES_REQUEST';
 
 //login
 export const CHECK_LOGIN = 'CHECK_LOGIN';
@@ -16,3 +17,5 @@ export const DECREMENT = 'DECREMENT';
 //score
 export const UPDATE_SCORE = 'UPDATE_SCORE';
 export const COMMIT_SCORE = 'COMMIT_SCORE';
+
+

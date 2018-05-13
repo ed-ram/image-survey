@@ -7,18 +7,18 @@ export const update_current_score = (val) => {
     return({
         type: types.UPDATE_SCORE, payload: val
     })
-}
+};
 
 export const commit_score = (val) => (
     {
         type: types.COMMIT_SCORE, payload: val 
     }
-)
+);
 
 const initState = {
     current_score: '',
     scores: [{uuid:'', score:''}]
-}
+};
 
 export default (state = initState, action) => {
     switch(action.type){

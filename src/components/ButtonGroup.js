@@ -13,6 +13,8 @@ class ButtonGroup extends Component {
       this.props.update_current_score(val)
     }
 
+    handleSubmit = () => {this.props.commit_score(this.props.scores)};
+
     render() {
       const {scores, increment, current_score, counter, imageGroups, decrement} = this.props;
       
@@ -50,7 +52,9 @@ class ButtonGroup extends Component {
             </li>
       </fieldset>
     </form>
- 
+    
+    <button className="btn btn-full"  onClick={this.handleSubmit}>TEST SUBMIT</button>
+
     <button className="btn btn-full"  onClick={increment}>next</button>
 </section>
         )
@@ -68,14 +72,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-/*
-const mapDispatchToProps = dispatch => {
-  return {
-    update_current_score,
-    increment: () => dispatch({ type: INCREMENT})
-    };
-};*/
-
-const mapDispatchToProps = {update_current_score, increment, decrement}
+const mapDispatchToProps = {update_current_score, increment, decrement, commit_score}
 
 export default connect(mapStateToProps, mapDispatchToProps)(ButtonGroup);

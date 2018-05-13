@@ -49,10 +49,10 @@ class App extends Component {
   }
 
   render() {
-    let { fetching, error, onGetList, imageGroups, initialised, current } = this.props;
+    let { fetching, error, onGetList, imageGroups, initialised, current} = this.props;
     return (
       <div className="App">
-      <Header />
+      <Header current={current} imageGroups={imageGroups}/>
       {current<=imageGroups.length-1
       ?
       (<div>
@@ -64,7 +64,7 @@ class App extends Component {
       <h1> thank you and goodnight </h1>
       </div>)
     }
-     
+
     </div>    
 
     );
@@ -83,7 +83,8 @@ const mapStateToProps = state => {
 //event emit signup sheet
 const mapDispatchToProps = dispatch => {
   return {
-    onGetList: () => dispatch({ type: types.GET_LIST_REQUEST, payload:{fetching: true, error: null, initialised: true}})
+    onGetList: () => dispatch({ type: types.GET_LIST_REQUEST, payload:{fetching: true, error: null, initialised: true}}),
+
      
     };
 };

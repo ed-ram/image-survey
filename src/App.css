@@ -1,5 +1,5 @@
 .Header {
-  display: flex;
+  /*display: flex;*/
   justify-content: space-between;
   align-items: flex-start;
   height: 50px;
@@ -7,6 +7,12 @@
   height: auto;
   padding: 20px;
   color: aliceblue;
+}
+
+.counter {
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 
 .App {

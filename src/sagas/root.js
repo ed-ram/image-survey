@@ -1,10 +1,10 @@
 import {  fork } from 'redux-saga/effects';
-import {loginWatcher} from './login'
-import {getImageListWatcher} from './imageList'
+import {getImageListWatcher} from './imageList';
+import {postScoresWatcher} from './scores';
 
 export default function* rootSaga () {
     yield [
-        fork(loginWatcher),
-        fork(getImageListWatcher)
+        fork(getImageListWatcher),
+        fork(postScoresWatcher)
     ];
 }

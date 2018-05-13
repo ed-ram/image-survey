@@ -3,12 +3,7 @@ import * as types from '../actions/types'
 // initial state
 const initialState = {
     initialised: false,
-    imageGroups: [{uuid:'21314', 
-                   images:['0e0733db-924f-4aef-bb06-6588dd06620d.jpg',
-                           '1c430a3d-58da-4288-87b4-577496bba46b.jpg',
-                           '1d630521-9daf-419a-b7b5-508f2a9fc4d2.jpg',
-                           ]},
-                {uuid:'21314', images:['345423','2352','2354423']},{uuid:'21314', images:['345423','2352','2354423']}],
+    imageGroups: [],
     fetching: false,
     error: null
 }
