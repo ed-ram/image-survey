@@ -19,4 +19,9 @@ export const DECREMENT = 'DECREMENT';
 export const UPDATE_SCORE = 'UPDATE_SCORE';
 export const COMMIT_SCORE = 'COMMIT_SCORE';
 
+//form
+export const INC_YEARS_EXP = 'INC_YEARS_EXP';
+export const DEC_YEARS_EXP = 'DEC_YEARS_EXP';
+export const INITIALISE = 'INITIALISE';
+
 

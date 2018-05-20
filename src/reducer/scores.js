@@ -1,6 +1,6 @@
 import * as types from '../actions/types'
 
-// synchronous action creators
+//action creators
 
 export const update_current_score = (val) => {
     console.log(val)
@@ -16,6 +16,7 @@ export const commit_score = (val) => (
 );
 
 const initState = {
+    years_experience: 0,
     current_score: '',
     scores: [{uuid:'', score:''}],
     scores_submitted: false
@@ -35,6 +36,12 @@ export default (state = initState, action) => {
         break;
     case types.POST_SCORES_SUCCESS:
         return {...state, scores_submitted: action.payload.scores_submitted}
+        break;
+    case types.INC_YEARS_EXP:
+        return {...state, years_experience: state.years_experience + 1};
+        break;
+    case types.DEC_YEARS_EXP:
+        return {...state, years_experience: state.years_experience - 1};
         break;
     default:
         return state;

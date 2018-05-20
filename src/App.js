@@ -7,53 +7,12 @@ import Header from './components/Header';
 import { Link, Route, Switch } from 'react-router-dom';
 import { connect } from "react-redux";
 import * as types from './actions/types';
-/*
-const Login = () => (
-  <div className="btn btn-ghost login-placeholder">
-    <Link to="/app"><h3>register or login</h3></Link>
-  </div>
-)*/
+import Form from './components/Form';
 
-const auth = new Auth();
-
-const Login = () => {
-  auth.login();
-};
-
-const DataEntry = () => (
-  <div>
-  <Header/>
-  <ImageGroup />
-  <ButtonGroup />
-  </div>
-)
-
-function Home (props) {
-  let {initialised, imageGroups} = props;
-  if (initialised) {
-    return (
-      <div>
-      <ImageGroup/>
-      <ButtonGroup/> 
-    </div>
-    )
-    return (null)
-  }
-}
-
-
-class App extends Component {
-
-  componentDidMount() {
-    this.props.onGetList()
-  }
-
-  render() {
-    let { fetching, error, onGetList, imageGroups, initialised, current} = this.props;
-    return (
-      <div className="App">
-      <Header current={current} imageGroups={imageGroups}/>
-      {current<=imageGroups.length-1
+const Survey = ({current, imageGroups}) => {
+  return (
+    <div>
+    {current<=imageGroups.length-1
       ?
       (<div>
       <ImageGroup/>
@@ -63,8 +22,34 @@ class App extends Component {
       (<div>
       <h1> thank you for participating </h1>
       </div>)
-    }
+      }
+    </div>
+  )
+}
 
+class App extends Component {
+
+  componentDidMount() {
+    this.props.onGetList()
+  }
+
+  render() {
+    const { fetching, error, onGetList, imageGroups, initialised, current, 
+    years_experience, inc_years_exp, dec_years_exp, initialise} = this.props;
+    return (
+      <div className="App">
+      <Header current={current} imageGroups={imageGroups}/>
+      
+      {!initialised 
+      ?
+      <Form years_experience={years_experience}
+            inc_years_exp={inc_years_exp}
+            dec_years_exp={dec_years_exp}
+            initialise={initialise}      
+      />
+      :
+      <Survey current={current} imageGroups={imageGroups}/>
+      }
     </div>    
 
     );
@@ -73,19 +58,21 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-      initialised: state.initialised,
+      initialised: state.imageList.initialised,
       fetching: state.fetching,
       error: state.error,
       imageGroups: state.imageList.imageGroups,
-      current: state.counter.current
-  };
+      current: state.counter.current,
+      years_experience: state.scores.years_experience,
+    };
 };
 //event emit signup sheet
 const mapDispatchToProps = dispatch => {
   return {
-    onGetList: () => dispatch({ type: types.GET_LIST_REQUEST, payload:{fetching: true, error: null, initialised: true}}),
-
-     
+    onGetList: () => dispatch({ type: types.GET_LIST_REQUEST, payload:{fetching: true, error: null}}),
+    inc_years_exp: () => dispatch({ type: types.INC_YEARS_EXP }),
+    dec_years_exp: () => dispatch({ type: types.DEC_YEARS_EXP }),
+    initialise: () => dispatch({ type: types.INITIALISE })
     };
 };
 

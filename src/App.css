@@ -146,6 +146,14 @@ border: 1px solid #82450f;
 color: #fff;
 }
 
+.btnSmall {
+  background-color: #e67e22;  /*   courtesy of flatui color site  */
+  border: 2px solid #271506;
+  border-radius: 10px;
+  color: #fff;
+  margin-left: 5px;
+  margin-right: 5px
+}
 
 .start-btn {
   margin-top: 100px;
