@@ -41,7 +41,7 @@ export default (state = initState, action) => {
         return {...state, years_experience: state.years_experience + 1};
         break;
     case types.DEC_YEARS_EXP:
-        return {...state, years_experience: state.years_experience - 1};
+        return {...state, years_experience: state.years_experience > 0 ? state.years_experience - 1 : 0};
         break;
     default:
         return state;
