@@ -52,7 +52,7 @@ class ButtonGroup extends Component {
       </fieldset>
     </form>
 
-    {(counter<imageGroups.length-1) && <button className="btn btn-full"  onClick={increment}>next</button>}
+    {(counter<imageGroups.length-1) && <button className="btn btn-full"  onClick={increment} disabled={scores[counter].score===''}>next</button>}
 
     {(counter==imageGroups.length-1) &&<button className="btn btn-full"  onClick={this.handleSubmit}>SUBMIT</button>}
 

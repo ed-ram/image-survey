@@ -1,31 +1,13 @@
 import React, { Component } from 'react';
 import Auth from './Authorisation/Auth'
 import './App.css';
-import ImageGroup from './components/ImageGroup';
-import ButtonGroup from './components/ButtonGroup';
 import Header from './components/Header';
 import { Link, Route, Switch } from 'react-router-dom';
 import { connect } from "react-redux";
 import * as types from './actions/types';
 import Form from './components/Form';
+import Survey from './components/Survey'
 
-const Survey = ({current, imageGroups}) => {
-  return (
-    <div>
-    {current<=imageGroups.length-1
-      ?
-      (<div>
-      <ImageGroup/>
-      <ButtonGroup/> 
-      </div>) 
-      :
-      (<div>
-      <h1> thank you for participating </h1>
-      </div>)
-      }
-    </div>
-  )
-}
 
 class App extends Component {
 
@@ -38,7 +20,7 @@ class App extends Component {
     years_experience, inc_years_exp, dec_years_exp, initialise} = this.props;
     return (
       <div className="App">
-      <Header current={current} imageGroups={imageGroups}/>
+      <Header current={current} imageGroups={imageGroups} initialised={initialised}/>
       
       {!initialised 
       ?

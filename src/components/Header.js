@@ -8,10 +8,10 @@ class Header extends Component {
 
     
     render() {
-        const {current, imageGroups} = this.props;
+        const {current, imageGroups, initialised} = this.props;
         return(
             <div className="Header">
-                <div className="counter"> {current+1}/ {imageGroups.length}</div>
+                {initialised && <div className="counter"> {current+1}/ {imageGroups.length}</div>}
                 <div className="App-title">
                     <h3>Arterial calcification on duplex ultrasound</h3>
                 </div>
