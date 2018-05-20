@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Auth from './Authorisation/Auth'
 import './App.css';
 import Header from './components/Header';
 import { Link, Route, Switch } from 'react-router-dom';
