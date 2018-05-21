@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const Form = ({years_experience, inc_years_exp, dec_years_exp, initialise}) => {
     return (

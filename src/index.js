@@ -9,14 +9,21 @@ import { Provider } from "react-redux";
 import {composeWithDevTools} from 'redux-devtools-extension'
 import rootSaga from './sagas/root';
 import rootReducer from './reducer/index';
+import { saveState, loadState } from './localStorage/localStorage';
 
+const persistedState = loadState();
 
 const sagaMiddleware = createSagaMiddleware();
 
 let store = createStore(
     rootReducer,
+    persistedState,
     composeWithDevTools(applyMiddleware(sagaMiddleware))
 );
+
+store.subscribe(() => {
+    saveState(store.getState());
+})
 
 sagaMiddleware.run(rootSaga);
 
