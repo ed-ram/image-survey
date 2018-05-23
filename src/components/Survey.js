@@ -2,18 +2,22 @@ import React from 'react';
 import ImageGroup from './ImageGroup';
 import ButtonGroup from './ButtonGroup';
 
-const Survey = ({current, imageGroups}) => {
+const style = {
+  marginTop: '10vh'
+}
+
+const Survey = ({scores_submitted}) => {
     return (
       <div>
-      {current<=imageGroups.length-1
+      {scores_submitted===false
         ?
         (<div>
         <ImageGroup/>
         <ButtonGroup/> 
         </div>) 
         :
-        (<div>
-        <h1> thank you for participating </h1>
+        (<div style={style}>
+        <p> Thank you for participating <br/> Goodbye! </p>
         </div>)
         }
       </div>

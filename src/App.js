@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+
 import Header from './components/Header';
 import { Link, Route, Switch } from 'react-router-dom';
 import { connect } from "react-redux";
@@ -16,7 +16,7 @@ class App extends Component {
 
   render() {
     const { fetching, error, onGetList, imageGroups, initialised, current, 
-    years_experience, inc_years_exp, dec_years_exp, initialise} = this.props;
+    years_experience, inc_years_exp, dec_years_exp, initialise, scores_submitted} = this.props;
     return (
       <div className="App">
       <Header current={current} imageGroups={imageGroups} initialised={initialised}/>
@@ -29,7 +29,7 @@ class App extends Component {
             initialise={initialise}      
       />
       :
-      <Survey current={current} imageGroups={imageGroups}/>
+      <Survey scores_submitted={scores_submitted}/>
       }
     </div>    
 
@@ -45,9 +45,10 @@ const mapStateToProps = state => {
       imageGroups: state.imageList.imageGroups,
       current: state.counter.current,
       years_experience: state.scores.years_experience,
+      scores_submitted: state.scores.scores_submitted
     };
 };
-//event emit signup sheet
+
 const mapDispatchToProps = dispatch => {
   return {
     onGetList: () => dispatch({ type: types.GET_LIST_REQUEST, payload:{fetching: true, error: null}}),

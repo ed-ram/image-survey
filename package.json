@@ -20,5 +20,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://infinite-woodland-10234.herokuapp.com/"
+  "proxy": "http://www.calcification.info/"
 }

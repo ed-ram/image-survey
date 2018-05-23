@@ -5,8 +5,10 @@ import history from '../Authorisation/history';
 import App from '../App';
 import Callback from '../Callback/Callback';
 import Header from './Header';
-import Login from './Login';
-import Logout from './Logout';
+import Home from './Home';
+import '../App.css';
+
+
 
 const auth = new Auth();
 
@@ -28,22 +30,6 @@ const Root = () => (
     </Router>
 )
 
-const Home = props => (
-    <div>
-        {
-            props.auth.isAuthenticated()
-            ?
-            (<div>
-            <App />
-            <Logout auth={auth}/>
-            </div>)
-            :
-            (<div>
-            <Login auth={auth}/>
-            <Logout auth={auth}/>
-            </div>)
-        }
-    </div>
-);
+
 
 export default Root;

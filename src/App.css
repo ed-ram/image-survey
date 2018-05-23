@@ -33,11 +33,6 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 html, body {
   height: 100%;
   background: linear-gradient(#0f142c, #361b53);
@@ -101,6 +96,11 @@ filter: grayscale(100%);
 
 /*-- BUTTON --*/
 
+.logout {
+  position: absolute;
+  top: 10px;
+  right: 2px
+}
 
 .btn {
 /*display: inline-block;*/
@@ -156,7 +156,7 @@ color: #fff;
 }
 
 .start-btn {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 /*-- input zone --*/

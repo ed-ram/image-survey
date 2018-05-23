@@ -27,13 +27,14 @@ export default class Auth {
       if(res) {
         console.log(`heres the result object from parseHash: ${JSON.stringify(res)}`)
         localStorage.setItem('access_token', res.accessToken);/* (method) Storage.setItem(key: string, value: string): void*/
+        localStorage.setItem('id_token', res.idToken);
         localStorage.setItem(
           'expires_at',
           JSON.stringify((res.expiresIn * 1000) + new Date().getTime())
         );
         history.replace('/');
       } else if (err) {
-        console.log(`heres an error from autho.parseHash in handleAuthentication ${err}`);
+        console.log(JSON.stringify(`heres an error from autho.parseHash in handleAuthentication ${err}`));
         history.replace('/');
       }
     })
@@ -54,6 +55,7 @@ export default class Auth {
     localStorage.removeItem('access_token');
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
+    localStorage.removeItem('state');
     // navigate to the home route
     history.replace('/');
   }

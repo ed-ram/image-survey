@@ -20,7 +20,7 @@ let store = createStore(
     persistedState,
     composeWithDevTools(applyMiddleware(sagaMiddleware))
 );
-
+/* IMPORTANT: store.subscribe should be throttled*/
 store.subscribe(() => {
     saveState(store.getState());
 })
