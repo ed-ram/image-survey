@@ -1,8 +1,8 @@
 import React from 'react';
 
-const LogOut = ({auth}) => (
+const LogOut = ({auth, pos}) => (
     <div>
-        <button className="logout btn btn-full" onClick={auth.logout}> logout </button>
+        <button style={pos} className="logout btn btn-full" onClick={auth.logout}> logout </button>
     </div>
 );
 

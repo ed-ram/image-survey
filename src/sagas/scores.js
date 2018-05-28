@@ -1,6 +1,7 @@
 import * as types from '../actions/types';
 import { takeLatest, call, put } from 'redux-saga/effects';
 import axios from 'axios';
+import API_URL from '../api_config';
 
 // watcher saga
 export function* postScoresWatcher() {
@@ -8,16 +9,19 @@ export function* postScoresWatcher() {
 }
 
 function sendScores (val) {
+    const tok = localStorage.getItem('access_token')
+    /*console.log(`accessing local storage in sendscores function: ${tok}`)*/
     return axios({
         method: 'post',
-        url: '/scores',
-        data: {date: new Date().toLocaleString(), scores: val}
+        url: `${API_URL}/scores`,
+        data: {date: new Date().toLocaleString(), scores: val},
+        headers: {Authorization: `Bearer ${tok}`} 
     })
 };
 
 //worker
 function* postScoresWorker(action) {
-    try{ 
+    try{
         const response = yield call(sendScores, action.payload);
         console.log(response);
         yield put({type: types.POST_SCORES_SUCCESS, payload: {scores_submitted: true}})

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import {IMAGE_URL} from '../api_config';
+
 
 const Pic = ({url}) => (
-    <div className="pic"><img src={`/public/${url}`} /></div>
+    <div className="pic"><img src={`${IMAGE_URL}/${url}`} /></div>
 )
 
 class ImageGroup extends Component {

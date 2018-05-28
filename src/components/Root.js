@@ -15,6 +15,7 @@ const auth = new Auth();
 const handleCallback = (props) => {
     if (/access_token|id_token|error/.test(props.location.hash)){
         auth.handleAuthentication();
+        
     }
 }
 

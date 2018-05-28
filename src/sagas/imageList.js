@@ -2,6 +2,7 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
 import axios from 'axios';
 import * as types from '../actions/types'
+import API_URL from '../api_config';
 
 // watcher saga
 export function* getImageListWatcher() {
@@ -9,14 +10,16 @@ export function* getImageListWatcher() {
 }
 
 function fetchImageList() {
+    console.log(`getting ${API_URL}/imagegroups`)
     return axios({
+        
         method: "get",
-        url: "/imagegroups"
+        url: `${API_URL}/imagegroups`
     })
 }
 
 function create_scores_array(objectArray) {
-    let output = []
+    let output = [];
     objectArray.map(
         (i) => {
             output.push(

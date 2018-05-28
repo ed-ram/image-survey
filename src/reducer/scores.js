@@ -3,7 +3,7 @@ import * as types from '../actions/types'
 //action creators
 
 export const update_current_score = (val) => {
-    console.log(val)
+    /*console.log(val)*/
     return({
         type: types.UPDATE_SCORE, payload: val
     })

@@ -9,7 +9,7 @@ export default class Auth {
     redirectUri: AUTH_CONFIG.redirectUri,
     audience: AUTH_CONFIG.audience,
     responseType: 'token id_token',
-    scope: 'openid'
+    scope: 'openid get:test post:scores'
   });
 
   login() {
@@ -22,10 +22,17 @@ export default class Auth {
     this.isAuthenticated = this.isAuthenticated.bind(this);
   }
 
+  getAccessToken() {
+    const accessToken = localStorage.getItem('access_token');
+    if (!accessToken) {
+      this.auth0.logout();
+    }
+    return accessToken;
+  }
+
   handleAuthentication = () => {
     this.auth0.parseHash((err, res) => {
       if(res) {
-        console.log(`heres the result object from parseHash: ${JSON.stringify(res)}`)
         localStorage.setItem('access_token', res.accessToken);/* (method) Storage.setItem(key: string, value: string): void*/
         localStorage.setItem('id_token', res.idToken);
         localStorage.setItem(
@@ -34,7 +41,7 @@ export default class Auth {
         );
         history.replace('/');
       } else if (err) {
-        console.log(JSON.stringify(`heres an error from autho.parseHash in handleAuthentication ${err}`));
+        console.log(JSON.stringify(`heres an error from autho.parseHash in handleAuthentication ${JSON.stringify(err)}`));
         history.replace('/');
       }
     })

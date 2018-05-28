@@ -24,4 +24,8 @@ export const INC_YEARS_EXP = 'INC_YEARS_EXP';
 export const DEC_YEARS_EXP = 'DEC_YEARS_EXP';
 export const INITIALISE = 'INITIALISE';
 
+//test
+
+export const TEST = 'TEST';
+
 

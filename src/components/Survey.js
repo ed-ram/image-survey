@@ -1,12 +1,13 @@
 import React from 'react';
 import ImageGroup from './ImageGroup';
 import ButtonGroup from './ButtonGroup';
+import Logout from './Logout'
 
 const style = {
   marginTop: '10vh'
 }
 
-const Survey = ({scores_submitted}) => {
+const Survey = ({scores_submitted, auth}) => {
     return (
       <div>
       {scores_submitted===false
@@ -17,7 +18,8 @@ const Survey = ({scores_submitted}) => {
         </div>) 
         :
         (<div style={style}>
-        <p> Thank you for participating <br/> Goodbye! </p>
+        <p> Thank you for participating <br/><br/> Goodbye! </p><br/>
+        <Logout auth={auth} pos={{position: 'relative'}}/>
         </div>)
         }
       </div>

@@ -20,12 +20,11 @@ export const saveState = (state) => {
         /*console.log(state);*/
         localStorage.setItem('state', serialisedState);
     } catch (err) {
-        /* local storage ain't perfect so catch and ignore */
         console.log(`caught this during saveState: ${err}`)
     }
 }
 
 /*
 // subscribed to the store in index.js - store gets saved  
-// automagically on each state change, loaded on refresh!
+// automagically on each state change, reloaded on refresh!
 */

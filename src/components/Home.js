@@ -9,8 +9,8 @@ const Home = props => (
             props.auth.isAuthenticated()
             ?
             (<div>
-            <App />
-            <Logout auth={props.auth}/>
+            <App auth={props.auth}/>
+            <Logout auth={props.auth} pos={{position: 'absolute', top:'10px', right: '2px'}}/>
             </div>)
             :
             (<div>

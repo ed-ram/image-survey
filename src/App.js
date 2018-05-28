@@ -15,8 +15,8 @@ class App extends Component {
   }
 
   render() {
-    const { fetching, error, onGetList, imageGroups, initialised, current, 
-    years_experience, inc_years_exp, dec_years_exp, initialise, scores_submitted} = this.props;
+    const { auth, fetching, error, onGetList, imageGroups, initialised, current, 
+    years_experience, inc_years_exp, dec_years_exp, initialise, scores_submitted, test} = this.props;
     return (
       <div className="App">
       <Header current={current} imageGroups={imageGroups} initialised={initialised}/>
@@ -29,7 +29,7 @@ class App extends Component {
             initialise={initialise}      
       />
       :
-      <Survey scores_submitted={scores_submitted}/>
+      <Survey scores_submitted={scores_submitted} auth={auth}/>
       }
     </div>    
 
@@ -54,7 +54,8 @@ const mapDispatchToProps = dispatch => {
     onGetList: () => dispatch({ type: types.GET_LIST_REQUEST, payload:{fetching: true, error: null}}),
     inc_years_exp: () => dispatch({ type: types.INC_YEARS_EXP }),
     dec_years_exp: () => dispatch({ type: types.DEC_YEARS_EXP }),
-    initialise: () => dispatch({ type: types.INITIALISE })
+    initialise: () => dispatch({ type: types.INITIALISE }),
+    test: () => dispatch({type: types.TEST})
     };
 };
 
