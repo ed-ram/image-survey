@@ -29,7 +29,7 @@ class App extends Component {
             initialise={initialise}      
       />
       :
-      <Survey scores_submitted={scores_submitted} auth={auth}/>
+      <Survey scores_submitted={scores_submitted} auth={auth} />
       }
     </div>    
 

@@ -10,7 +10,7 @@ const Home = props => (
             ?
             (<div>
             <App auth={props.auth}/>
-            <Logout auth={props.auth} pos={{position: 'absolute', top:'10px', right: '2px'}}/>
+            <Logout auth={props.auth} pos={{position: 'absolute', top:'10px', right: '10px'}}/>
             </div>)
             :
             (<div>

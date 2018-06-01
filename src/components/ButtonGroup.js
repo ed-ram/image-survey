@@ -13,10 +13,10 @@ class ButtonGroup extends Component {
       this.props.update_current_score(val)
     }
 
-    handleSubmit = () => {this.props.commit_score(this.props.scores)};
+    handleSubmit = () => {this.props.commit_score({scores: this.props.scores, years_experience: this.props.years_experience})};
 
     render() {
-      const {scores, increment, current_score, counter, imageGroups, decrement} = this.props;
+      const {scores, increment, current_score, counter, imageGroups, decrement, years_experience} = this.props;
       
         return(
 <section className="buttonContainer">
@@ -56,6 +56,8 @@ class ButtonGroup extends Component {
 
     {(counter==imageGroups.length-1) &&<button className="btn btn-full"  onClick={this.handleSubmit}>SUBMIT</button>}
 
+   
+
 </section>
         )
     }
@@ -67,7 +69,8 @@ const mapStateToProps = (state) => {
       counter: state.counter.current,
       imageGroups: state.imageList.imageGroups,  
       current_score: state.scores.current_score,
-      scores: state.scores.scores
+      scores: state.scores.scores,
+      years_experience: state.scores.years_experience
 
   };
 };

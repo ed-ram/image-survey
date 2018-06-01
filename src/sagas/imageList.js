@@ -10,7 +10,7 @@ export function* getImageListWatcher() {
 }
 
 function fetchImageList() {
-    console.log(`getting ${API_URL}/imagegroups`)
+    /*console.log(`getting ${API_URL}/imagegroups`)*/
     return axios({
         
         method: "get",
