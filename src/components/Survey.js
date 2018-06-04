@@ -1,6 +1,6 @@
 import React from 'react';
-import ImageGroup from './ImageGroup';
-import ButtonGroup from './ButtonGroup';
+import ImageGroup from '../containers/ImageGroup';
+import ButtonGroup from '../containers/ButtonGroup';
 import Logout from './Logout'
 
 const style = {

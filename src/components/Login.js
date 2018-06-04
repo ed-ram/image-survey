@@ -1,6 +1,6 @@
 import React from 'react';
 import Auth from '../Authorisation/Auth';
-import Header from './Header'
+import Header from '../containers/Header'
 
 const Login = ({auth}) => (
     <div className="App">

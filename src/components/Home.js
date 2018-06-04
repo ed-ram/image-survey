@@ -1,8 +1,9 @@
 import React from 'react';
-import App from '../App';
+import App from '../containers/App';
 import Login from './Login';
 import Logout from './Logout';
 
+/* I should use router instead of this goofy component-as-a-switch thing */
 const Home = props => (
     <div>
         {
