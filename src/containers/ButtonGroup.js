@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {increment, decrement} from '../reducer/counter'
-
 import {commit_score, update_current_score} from '../reducer/scores'
+import './ButtonGroup.css';
 
 
 class ButtonGroup extends Component {

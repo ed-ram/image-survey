@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-
 import Header from './Header';
 import { Link, Route, Switch } from 'react-router-dom';
 import { connect } from "react-redux";
 import * as types from '../actions/types';
 import Form from '../components/Form';
-import Survey from '../components/Survey'
+import Survey from '../components/Survey';
+
 
 
 class App extends Component {
@@ -16,22 +16,27 @@ class App extends Component {
 
   render() {
     const { auth, fetching, error, onGetList, imageGroups, initialised, current, 
-    years_experience, inc_years_exp, dec_years_exp, initialise, scores_submitted, test} = this.props;
+    years_experience, inc_years_exp, dec_years_exp, initialise, scores_submitted,
+    test} = this.props;
+    
     return (
-      <div className="App">
-      <Header current={current} imageGroups={imageGroups} initialised={initialised}/>
       
-      {!initialised 
-      ?
-      <Form years_experience={years_experience}
-            inc_years_exp={inc_years_exp}
-            dec_years_exp={dec_years_exp}
-            initialise={initialise}      
-      />
-      :
-      <Survey scores_submitted={scores_submitted} auth={auth} />
-      }
-    </div>    
+      <div className="App" > 
+        <Header current={current} imageGroups={imageGroups} initialised={initialised} />
+        
+        {!initialised 
+        ?
+          <Form years_experience={years_experience}
+                inc_years_exp={inc_years_exp}
+                dec_years_exp={dec_years_exp}
+                initialise={initialise}      
+          />
+        :
+          <Survey scores_submitted={scores_submitted} auth={auth} />
+        }
+
+      </div>    
+
 
     );
   }

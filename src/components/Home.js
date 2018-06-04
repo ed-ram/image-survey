@@ -5,7 +5,9 @@ import Logout from './Logout';
 
 /* I should use router instead of this goofy component-as-a-switch thing */
 const Home = props => (
-    <div>
+    <div /*style={{backgroundImage: `url(${require("../images/calcium.jpg")})`, 
+                 backgroundSize: 'cover',
+                 height: '100vh'}}*/ >
         {
             props.auth.isAuthenticated()
             ?

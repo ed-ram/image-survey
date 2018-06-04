@@ -18,7 +18,7 @@ const handleCallback = (props) => {
 
 const Root = () => (
     <Router history={history}>
-        <Switch>
+        <Switch >
             <Route exact path='/' render={ () => <Home auth={auth} /> } />
             <Route path='/callback' render={ (props) => {
                 handleCallback(props);

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {IMAGE_URL} from '../api_config';
 
-
 const Pic = ({url}) => (
     <div className="pic"><img src={`${IMAGE_URL}/${url}`} /></div>
 )
@@ -11,16 +10,13 @@ class ImageGroup extends Component {
     render() {
         const {current, imageGroups} = this.props;
         return(
-        <section className="imageContainer">
+        <div className="imageContainer">
             {
                 imageGroups[current].images.map((url) =>
-                    <Pic url={url} key={url}
-                    />
-
+                    <Pic url={url} key={url} />
                 )
             }
-        </section>
-        
+        </div>
        )
     }
 }

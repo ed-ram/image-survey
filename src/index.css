@@ -3,3 +3,43 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+html { 
+  background: url(images/calcium.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.imageContainer img{
+  width: 600px;
+  height: 400px;
+  padding: 40px 0px;
+  margin: auto
+}
+
+.imageContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  background-color: rgba(255,255,255,0.4);
+}
+
+/*- 2 pics on one line and third on its own looks horrible for some reason so... -*/
+@media all and (max-width: 1800px) {
+  .imageContainer {
+      flex-direction: column;
+      align-items: center;
+      margin-left: 10vw;
+      margin-right: 10vw;
+  }   
+}
+@media all and (max-width: 770px) {
+  .imageContainer {
+      flex-direction: column;
+      align-items: center;
+      margin-left: 0vw;
+      margin-right: 0vw
+  }   
+}
