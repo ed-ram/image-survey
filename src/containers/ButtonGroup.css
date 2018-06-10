@@ -3,11 +3,33 @@
     justify-content: space-between;
     align-items: center;
     height: 50px;
-    background-color: rgba(2, 2, 2, 0.8);
+    background-color: rgba(2, 2, 2, 1);
     height: auto;
     padding: 20px;
     color: aliceblue;
     flex-flow: row wrap;
     justify-content: center;
-
 }
+
+fieldset {
+    border: 0;
+}
+
+.formList {
+    list-style-type: none;
+}
+
+.btn-full {
+    margin: 0px 20px;
+    border-color: #e67e22;
+}
+
+.radioLabel {
+    display: inline-block;
+    text-align: center;
+    margin: 0em 0.2em;
+  }
+  
+  .radioLabel label {
+    display: block;
+  }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {IMAGE_URL} from '../api_config';
+import './ImageGroup.css';
 
 const Pic = ({url}) => (
     <div className="pic"><img src={`${IMAGE_URL}/${url}`} /></div>
