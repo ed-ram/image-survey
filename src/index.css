@@ -43,8 +43,13 @@ html {
   margin-right: 5px
 }
 
-
-
+.textPage {
+  text-align: center;
+  color: aliceblue;
+  background-color: rgba(2, 2, 2, 0.8);
+  height: 100vh;
+  padding-top: 20px;
+}
 
 /*- 2 pics on one line and third on its own looks horrible for some reason so... -*/
 /*@media all and (max-width: 1800px) {

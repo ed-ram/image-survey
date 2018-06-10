@@ -7,8 +7,6 @@ import Form from '../components/Form';
 import Survey from '../components/Survey';
 
 
-
-
 class App extends Component {
 
   componentDidMount() {
@@ -18,19 +16,24 @@ class App extends Component {
   render() {
     const { auth, fetching, error, onGetList, imageGroups, initialised, current, 
     years_experience, inc_years_exp, dec_years_exp, initialise, scores_submitted,
-    test, toggle_accreditation, toggle_towards_accreditation} = this.props;
+    test, toggle_accreditation, toggle_towards_accreditation, SVT_accredited, 
+    working_towards_acc} = this.props;
     
     return (
       
       <div className="App" > 
-        <Header current={current} imageGroups={imageGroups} initialised={initialised} />
+        <Header current={current} imageGroups={imageGroups} initialised={initialised} scores_submitted={scores_submitted}/>
         
         {!initialised 
         ?
           <Form years_experience={years_experience}
+                SVT_accredited={SVT_accredited}
+                working_towards_acc={working_towards_acc}
                 inc_years_exp={inc_years_exp}
                 dec_years_exp={dec_years_exp}
-                initialise={initialise}      
+                initialise={initialise}
+                toggle_accreditation={toggle_accreditation}
+                toggle_towards_accreditation={toggle_towards_accreditation}
           />
         :
           <Survey scores_submitted={scores_submitted} auth={auth} />
@@ -51,6 +54,8 @@ const mapStateToProps = state => {
       imageGroups: state.imageList.imageGroups,
       current: state.counter.current,
       years_experience: state.scores.years_experience,
+      SVT_accredited: state.scores.SVT_accredited,
+      working_towards_acc: state.scores.working_towards_acc,
       scores_submitted: state.scores.scores_submitted
     };
 };

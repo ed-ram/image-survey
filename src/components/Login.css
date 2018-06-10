@@ -5,20 +5,3 @@
     height: 100vh;
     padding-top: 20px;
 }
-
-@media all and (max-width: 1800px) {
-    .welcome {
-        margin-left: 10vw;
-        margin-right: 10vw;
-    }   
-}
-@media all and (max-width: 770px) {
-    .welcome {
-        margin-left: 0vw;
-        margin-right: 0vw
-    }   
-}
-
-.start-btn {
-    margin-top: 40px;;
-}

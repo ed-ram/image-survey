@@ -17,6 +17,8 @@ export const commit_score = (val) => (
 
 const initState = {
     years_experience: 0,
+    SVT_accredited: false,
+    working_towards_acc: false,
     current_score: '',
     scores: [{uuid:'', score:''}],
     scores_submitted: false
@@ -43,6 +45,11 @@ export default (state = initState, action) => {
     case types.DEC_YEARS_EXP:
         return {...state, years_experience: state.years_experience > 0 ? state.years_experience - 1 : 0};
         break;
+    case types.TOGGLE_SVT_ACCREDITED:
+        return {...state, SVT_accredited: !state.SVT_accredited};
+        break;
+    case types.TOGGLE_WORKING_TOWARDS_ACCREDITATION:
+        return {...state, working_towards_acc: !state.working_towards_acc}
     default:
         return state;
     }

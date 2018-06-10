@@ -3,9 +3,7 @@ import ImageGroup from '../containers/ImageGroup';
 import ButtonGroup from '../containers/ButtonGroup';
 import Logout from './Logout'
 
-const style = {
-  marginTop: '10vh'
-}
+
 
 const Survey = ({scores_submitted, auth}) => {
     return (
@@ -17,8 +15,8 @@ const Survey = ({scores_submitted, auth}) => {
         <ButtonGroup/> 
         </div>) 
         :
-        (<div style={style}>
-        <p> Thank you for participating <br/><br/> Goodbye! </p><br/>
+        (<div className="textPage">
+        <p><br/> Thank you for participating <br/><br/> Goodbye! </p><br/>
         <Logout auth={auth} pos={{position: 'relative'}}/>
         </div>)
         }

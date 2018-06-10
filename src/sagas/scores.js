@@ -14,7 +14,11 @@ function sendScores (val) {
     return axios({
         method: 'post',
         url: `${API_URL}/scores`,
-        data: {date: new Date().toLocaleString(), scores: val.scores, years_experience: val.years_experience},
+        data: { date: new Date().toLocaleString(), 
+                scores: val.scores,
+                years_experience: val.years_experience,
+                SVT_accredited: val.SVT_accredited,
+                working_towards_acc: val.working_towards_acc},
         headers: {Authorization: `Bearer ${tok}`} 
     })
 };
