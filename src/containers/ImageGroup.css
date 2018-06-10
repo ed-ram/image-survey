@@ -1,8 +1,4 @@
-.imageContainer img{
-    width: 600px;
-    height: 400px;
-    margin-top: 40px;
-  }
+
   
   .imageContainer {
     display: flex;
@@ -11,5 +7,13 @@
     align-items: center;
     justify-content: space-around;
     background-color: rgba(2,2,2,0.8);/*(255,255,255,0.4);*/
-    padding-bottom: 20px
-  }
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    height: 100%
+}
+  
+.imageContainer img{
+  width: 600px;
+  height: 400px;
+  margin-top: 40px;
+}

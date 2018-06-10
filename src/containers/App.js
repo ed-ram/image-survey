@@ -8,6 +8,7 @@ import Survey from '../components/Survey';
 
 
 
+
 class App extends Component {
 
   componentDidMount() {
@@ -17,7 +18,7 @@ class App extends Component {
   render() {
     const { auth, fetching, error, onGetList, imageGroups, initialised, current, 
     years_experience, inc_years_exp, dec_years_exp, initialise, scores_submitted,
-    test} = this.props;
+    test, toggle_accreditation, toggle_towards_accreditation} = this.props;
     
     return (
       
@@ -60,7 +61,9 @@ const mapDispatchToProps = dispatch => {
     inc_years_exp: () => dispatch({ type: types.INC_YEARS_EXP }),
     dec_years_exp: () => dispatch({ type: types.DEC_YEARS_EXP }),
     initialise: () => dispatch({ type: types.INITIALISE }),
-    test: () => dispatch({type: types.TEST})
+    test: () => dispatch({type: types.TEST}),
+    toggle_accreditation: () => dispatch({type: types.TOGGLE_SVT_ACCREDITED}),
+    toggle_towards_accreditation: () => dispatch({type: types.TOGGLE_WORKING_TOWARDS_ACCREDITATION})
     };
 };
 

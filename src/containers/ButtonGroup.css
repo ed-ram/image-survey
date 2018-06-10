@@ -5,12 +5,21 @@
     height: 50px;
     background-color: rgba(2, 2, 2, 1);
     height: auto;
-    padding: 20px;
+    padding: 40px;
+    padding-bottom: 10vh;
     color: aliceblue;
     flex-flow: row wrap;
     justify-content: center;
 }
 
+/*@media all and (min-width: 1800px) {
+    .buttonContainer {
+      position: fixed;
+      bottom: 0;
+      width: 100%
+    }   
+  }*/
+  
 fieldset {
     border: 0;
 }
