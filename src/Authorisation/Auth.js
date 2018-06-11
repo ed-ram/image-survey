@@ -15,6 +15,7 @@ export default class Auth {
   login() {
     this.auth0.authorize();
   }
+
   constructor() {
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
