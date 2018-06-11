@@ -10,8 +10,8 @@ const Form = ({years_experience, inc_years_exp, dec_years_exp, initialise, SVT_a
              {years_experience} 
             <button className="btnSmall" onClick={inc_years_exp}> + </button> 
              years</p>
-            <p>I am accredited by the SVT <input type="checkbox" checked={SVT_accredited} onClick={toggle_accreditation}/></p>
-            {!SVT_accredited && <p>I am working towards SVT accreditation <input type="checkbox" checked={working_towards_acc} onClick={toggle_towards_accreditation}/></p>}
+            <label><p>I am accredited by the SVT <input type="checkbox" checked={SVT_accredited} onClick={toggle_accreditation}/></p></label>
+            {!SVT_accredited && <label><p>I am working towards SVT accreditation <input type="checkbox" checked={working_towards_acc} onClick={toggle_towards_accreditation}/></p></label>}
             <button className="btn btn-full" onClick={initialise}>Next</button>
         </div>
     );
